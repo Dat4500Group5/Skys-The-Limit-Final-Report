@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sky's The Limit Final Report</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- <script src="script.js"></script> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+        <style>
+            body{
+                font-family: 'Nunito', sans-serif;
+            }
+
+            h1{
+                font-weight: 900;
+                font-size: 40px;
+            }
+
+            nav{
+                background-color: pink;
+                padding: 10px;
+                text-align: end;
+                position: sticky;
+                top: 0;
+                overflow-x: hidden;
+                z-index: 2;
+            }
+
+            nav a{
+                padding: 0 15px;
+                font-weight: 600;
+                font-size: 18px;
+                text-decoration: none;
+                border: 2px solid brown;
+                border-radius: 10px;
+            }
+
+            nav a:hover{
+                background-color: aliceblue;
+            }
+
+            .content{
+                margin-top: 10vh;
+                position: sticky;
+                top: 15vh;
+                left: 5%;
+                float: left;
+                width: 20vw;
+                border-radius: 20px;
+                background-color: lavender;
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content a{
+                border: 0;
+                text-align: left;
+                color: black;
+            }
+
+            .report{
+                margin-top: 10vh;
+                margin-left: 30vw;
+                margin-right: 50px;
+            }
+
+            .report p{
+                text-align: justify;
+            }
+        </style>
+    </head>
+
+    <body style="margin: 0px;">
+        <header style="text-align: center;">
+            <h1>Investigating Plane Age and Flight Cancellations/Delays</h1>
+        </header>
+        <nav>
+            <a href="" style="background-color: aliceblue;">Report</a>
+            <a href="">Shiny App</a>
+        </nav>
+        <nav class="content">
+            <a href="#">Abstract</a>
+            <a href="#">Introduction</a>
+        </nav>
+        <div class="report">
+            <h2>Abstract</h2>
+            <h2>Introduction</h2>
+            <p>Per the FAA, 2.9 million passengers are served on 45,000 flights across United States Domestic flights. 20-25% of these flights are predicted to be delayed, with a 1-2% cancellation rate. Several factors may account for delays, most notably weather, air traffic congestion and mechanical issues with the plane. While weather and air traffic congestion are not influenced by the status of a plane, mechanical problems may be explained through plane age, as wear from normal usage of the plane may incur increased amounts of maintenance. Thus, the purpose of this research project is to investigate the relationship between plane age and plane mishaps. Additionally, a multivariate model will assess plane age calculation.</p>
+            <p>This project uses The Sky’s the Limit dataset which contains data for all domestic flights since 1987.</p>
+            <p>FAA plane registration data has been joined via tail number association to calculate manufacture date for each aircraft.</p>
+        </div>
+    </body>
+
+</html>
