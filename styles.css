@@ -1,0 +1,77 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+h1{
+    font-weight: 900;
+    font-size: 40px;
+}
+
+h4{
+    color: darkslateblue
+}
+
+nav{
+    background-color: pink;
+    padding: 10px;
+    text-align: end;
+    position: sticky;
+    top: 0;
+    overflow-x: hidden;
+    z-index: 2;
+}
+
+nav a{
+    padding: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    border: 2px solid brown;
+    border-radius: 10px;
+}
+
+nav a:hover{
+    background-color: aliceblue;
+}
+
+.content{
+    margin-top: 5svh;
+    position: sticky;
+    top: 10svh;
+    left: 5%;
+    float: left;
+    width: 20vw;
+    border-radius: 20px;
+    background-color: lavender;
+    overflow-x: auto;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content a{
+    border: 0;
+    text-align: left;
+    color: black;
+    margin: 2px;
+}
+
+.report{
+    position: relative;
+    top: 50px;
+    margin-left: 30vw;
+    margin-right: 50px;
+}
+
+.report p{
+    text-align: justify;
+}
+
+.content a.sub{
+    margin-left: 20px;
+    color: darkslateblue;
+}
+
+.shiny{
+    margin: 20px
+}
