@@ -96,3 +96,8 @@ h2[id], h3[id]{
 .shiny{
     margin: 20px
 }
+
+img {
+    width: 55svw;
+    height: auto;
+}
