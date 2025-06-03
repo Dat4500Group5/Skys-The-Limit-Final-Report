@@ -21,57 +21,83 @@ nav{
     z-index: 2;
 }
 
+#header{
+    height: 1.5rem;
+    overflow-y: hidden;
+}
+
+#header a{
+    padding: 10px 15px;
+    color: black;
+}
+
 nav a{
-    padding: 0 15px;
     font-weight: 600;
     font-size: 18px;
     text-decoration: none;
-    border: 2px solid brown;
-    border-radius: 10px;
 }
 
 nav a:hover{
     background-color: aliceblue;
 }
 
-.content{
-    margin-top: 5svh;
+#content{
+    margin-top: 2rem;
     position: sticky;
-    top: 10svh;
+    top: 5rem;
     left: 5%;
     float: left;
-    width: 20vw;
+    width: 25svw;
     border-radius: 20px;
     background-color: lavender;
     overflow-x: auto;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    z-index: 0;
+    max-width: 20rem;
 }
 
-.content a{
+#content a{
     border: 0;
     text-align: left;
     color: black;
     margin: 2px;
 }
 
+#gap{
+    position: sticky;
+    top: 2.5rem;
+    height: 1.2rem;
+    background-color: white;
+    z-index: 1;
+}
+
 .report{
-    position: relative;
-    top: 50px;
-    margin-left: 30vw;
+    position: static;
+    margin-left: 35svw;
     margin-right: 50px;
+    margin-top: 2rem;
 }
 
 .report p{
     text-align: justify;
 }
 
-.content a.sub{
+h2[id], h3[id]{
+    scroll-margin-top: 4rem;
+}
+
+#content a.sub{
     margin-left: 20px;
     color: darkslateblue;
 }
 
 .shiny{
     margin: 20px
+}
+
+img {
+    width: 55svw;
+    height: auto;
 }
