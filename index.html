@@ -18,7 +18,7 @@
         </header>
         <nav id="header">
             <a href="" style="background-color: aliceblue;">Report</a>
-            <a href="shiny.html">Visualization</a>
+            <a href="visualizations.html">Visualizations</a>
         </nav>
         <div id="gap"></div>
         <nav id="content">
@@ -120,20 +120,28 @@
                 <h3 id="logreg">Logistic Regression</h3>
                 <p>Initial logistic regression models were surprising for both delay and cancellations. Airtime and distance had large coefficients which is likely caused by their large multicollinearity. Thus, we created new models excluding airtime or distance. Standardized coefficients for the delay predicting model without airtime are as follows: Intercept = -3.067, Age = -0.028, Flights = 0.217, Distance = -0.028. Coefficients for the delay predicting model that excludes distance is as follows: Intercept = -3.067, Airtime = -0.034, Age = -0.027, Flights = 0.224. The same approach was used in the canceled model. Coefficients for the canceled model excluding airtime are as follows: Intercept = -5.447, Age = 0.337, Flights = 0.085, Distance = 0.06. Coefficients for the canceled model without distance are as follows: Intercept = -5.446, Airtime = 0.063, Flights = 0.081. </p>
 
-                <h3 id="fin">Final Models</h3>
-                    <h4>AGE</h4>
-                    <p>A model was fit for using AGE (years since manufacture) as a predictor variable for the proportion of planes that were delayed by more than 30 minutes.</p>
-                    <p>The instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays.</p>
-                
-                    <h4>FLIGHTS</h4>
-                    <p>A model was fit using FLIGHTS as a predictor variable for the proportion of planes delayed by more than 30 minutes. The instances of aircraft were binned by 1000 planes and then a cubic model was fit on the data.</p>
-                    <p>There were a number of outliers, representing aircraft flying between islands in Hawaii, that skewed the regression line. Removing those outliers from the regression line fit more accurately. </p>                
-                    
-                    <h4>DISTANCE</h4>
-                    <p>TODO</p>
+                <h3 id="mod">Final Models</h3>
+                <h4>AGE</h4>
+                <p>A model was fit for using AGE (years since manufacture) as a predictor variable for the proportion of planes that were delayed by more than 30 minutes.</p>
+                <p>The instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays.</p>
+                <img src="images/Delay vs AGE.png" alt="Plot showing prooportion of planes delayed vs AGE" width="600">
+                <p>We also succeeded in fitting a model to the pattern of aircraft cancellations using AGE as a predictor variable, something we were unable to do with the other predictors.</p>
+                <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes cancelled vs AGE" width="600">
 
-                    <h4>AIRTIME</h4>
-                    <p>TODO</p>
+                <h4>FLIGHTS</h4>
+                <p>A model was fit using FLIGHTS as a predictor variable for the proportion of planes delayed by more than 30 minutes. The instances of aircraft were binned by 1000 planes and then a cubic model was fit on the data.</p>
+                <!--<img src="images/plane_age.png" alt="Chart showing age vs delay" width="600"-->
+                <p>There were a number of outliers, representing aircraft flying between islands in Hawaii, that skewed the regression line. Removing those outliers from the regression line fit more accurately. </p>        
+                <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
+
+                <h4>DISTANCE</h4>
+                <p>TODO</p>
+                <img src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs delays" width="600">
+
+                <h4>AIRTIME</h4>
+                <p>TODO</p>
+                <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
+
                 
                 <p></p>
 
@@ -155,7 +163,7 @@
                 <p>We were also constrained in the level of accuracy we could reach in our investigation into the causes of aircraft delays. If the data were available, we would have employed additional variables containing information about the mechanical status and history of individual aircraft. </p>
 
                 <h3 id="con">Conclusion</h3>
-                <p></p>
+                <p>Some of our predictor variables, such as DISTANCE and AIRTIME, were highly correlated with each other, but they each seemed to have some power in predicting aircraft delays. We were able to fit a very clean model with the AGE variable for both delays and cancellations, which was difficult to do with other predictors. We also found some research which helps to explain our findings. </p>
 
             </div>
     </body>

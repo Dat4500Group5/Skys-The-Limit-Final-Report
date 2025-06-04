@@ -21,7 +21,7 @@
 
     <nav>
         <a href="" style="background-color: aliceblue;">Report</a>
-        <a href="">Shiny App</a>
+        <a href="visualizations.html">Visualizations</a>
     </nav>
 
     <nav class="content">
@@ -130,20 +130,23 @@
                 <h4>AGE</h4>
                 <p>A model was fit for using AGE (years since manufacture) as a predictor variable for the proportion of planes that were delayed by more than 30 minutes.</p>
                 <p>The instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays.</p>
-                <!--Age model image-->
-
+                <img src="images/Delay vs AGE.png" alt="Plot showing prooportion of planes delayed vs AGE" width="600">
+                <p>We also succeeded in fitting a model to the pattern of aircraft cancellations using AGE as a predictor variable, something we were unable to do with the other predictors.</p>
+                <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes cancelled vs AGE" width="600">
 
                 <h4>FLIGHTS</h4>
                 <p>A model was fit using FLIGHTS as a predictor variable for the proportion of planes delayed by more than 30 minutes. The instances of aircraft were binned by 1000 planes and then a cubic model was fit on the data.</p>
                 <!--<img src="images/plane_age.png" alt="Chart showing age vs delay" width="600"-->
                 <p>There were a number of outliers, representing aircraft flying between islands in Hawaii, that skewed the regression line. Removing those outliers from the regression line fit more accurately. </p>        
-                <!--Flights model image-->
+                <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
 
                 <h4>DISTANCE</h4>
                 <p>TODO</p>
+                <img src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs delays" width="600">
 
                 <h4>AIRTIME</h4>
                 <p>TODO</p>
+                <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
             
     
         <h2 id="result">Discussion</h2>
