@@ -66,8 +66,13 @@
                 <p>Proportions were calculated for planes out of total flights that were delayed more than thirty minutes, and this ratio was added to the dataset as a new variable. This proportion would be used to show the proportion of flights that were delayed per year per tail number. Thirty minutes was used as the cutoff for significant delays and thus was used in the delay ratio. Also, a ratio for cancellations was created to display the proportion of flights cancelled per year per tail number. This proportion used carrier cancellations divided by flights for a plane. </p>
 
                 <h3 id="age">Four Ages</h3>
-                <p>Correlation tests were done with the 4 ways to look at age (years since manufacture, total flights & annual flights, total airtime, and total distance travelled) and the ratios of planes delayed by more than 30 minutes. A multivariable regression model was created with all four ages, with the ratio of planes delayed more than 30 minutes as the dependent variable. Another multivariable regression model was created with all four ages, with the ratio of flights that were cancelled as the dependent variable. </p>
+                <p>We used four different metrics to represent the age of a given aircraft. These included AGE (years since manufacture), AIRTIME (total hours flown), DISTANCE (total miles traveled), and FLIGHTS (number of journeys involving a takeoff and landing). Occasionally in our analysis, we also considered FLIGHTS_ANNUAL (number of flights per year), which provided additional insights into usage patterns over time.</p>
+                <p>Correlation tests were conducted between each of the four age metrics and the proportion of flights delayed by more than 30 minutes. We then developed a multivariable regression model using all four age variables to predict this delay ratio. A second multivariable regression model was created to examine how these same variables predicted the ratio of cancelled flights.</p>
                 
+                <h3 id="multicol">Multicollinearity</h3>
+                <p>Multicollinearity was a concern for the tests being done with four (or five) ways to look at age in the model looking at delays. The Variance Inflation Factor (VIF) needed to be calculated to determine if any of our ages are collinear (distance and airtime have similar scatterplots). We were looking for a VIF over 5 to be too high. The VIF for both Distance and Air Time was astronomical. The two variables were very highly correlated and could skew results of the model. They were combined into one variable for the model, and then the multicollinearity was tested again.</p>
+                <p>The multivariable regression model with the proportion of flights that were cancelled as the dependent variable was created with Distance and Air time combined, and then that model was also tested for collinearity.</p>
+
                 <h3 id="log">Logistic Modelling</h3>
                 <p>Logistic modeling was used to estimate the probability of a plane mishap given values for the four-age metrics. This type of regression would allow us to create a prediction model that uses the age metrics to predict the probability a flight would be delayed or cancelled. To properly perform the model, data needed to be reorganized to allow rows to represent individual flights, rather than year for a tail number with a binary value for delay or cancellation. Rather than redownloading paraquet file data, a reasonable approximation would be made that would require less computing power. Each tail number by year row would be cloned based on the number of flights in a row. Then, for the delayed column, the number of rows with binary positive delay value would be added based on the number of delays over 30 minutes a plane had in a year. This same process was used for cancellations.</p>
                 <p>Given the large increase in data, we needed to decrease our rows in a way that helped answer our research question. Our primary focus on planes is centered around airport-based flights, and therefore certain commercial airline registration types were more relevant and filtered for in the dataset. Furthermore, several different types of planes existed, and we filtered for multi engine planes as they are the most common commercial airplane type. However, logistic regression models still were not able to run, given the mass of data. Therefore, we filtered for manufacturing year, from 2008-2014. This choice was made because it allowed all planes to have 10 years of use, and we could not go before 2008 because the delay type was not previously recorded.</p>
@@ -84,9 +89,6 @@
                 <h3 id="reg">Multivariable Regression</h3>
                 <p>Multivariable regression was conducted with the four age variables together (looking at flights both annually and cumulatively). The four age variables were confirmed to be statistically significant because they all have very small p-values. However, we needed to assess the relative strength of their impact as predictor variables.</p>
 
-                <h3 id="multicol">Multicollinearity</h3>
-                <p>TODO</p>
-
                 <h3 id="logreg">Logistic Regression</h3>
                 <p>Initial logistic regression models were surprising for both delay and cancellations. Airtime and distance had large coefficients which is likely caused by their large multicollinearity. Thus, we created new models excluding airtime or distance. Standardized coefficients for the delay predicting model without airtime are as follows: Intercept = -3.067, Age = -0.028, Flights = 0.217, Distance = -0.028. Coefficients for the delay predicting model that excludes distance is as follows: Intercept = -3.067, Airtime = -0.034, Age = -0.027, Flights = 0.224. The same approach was used in the canceled model. Coefficients for the canceled model excluding airtime are as follows: Intercept = -5.447, Age = 0.337, Flights = 0.085, Distance = 0.06. Coefficients for the canceled model without distance are as follows: Intercept = -5.446, Airtime = 0.063, Flights = 0.081. </p>
 
@@ -100,6 +102,7 @@
                 <p></p>
                 
                 <h3 id="lim">Limitations</h3>
+                <p>TODO</p>
 
             <h2 id="result">Discussion</h2>
 
@@ -112,6 +115,9 @@
                 <h3 id="new">Multicollinearity in the New Model</h3>
                 <p>In the face of multicollinear variables in our delays model, it was important to reduce conflicts in our variables could be throwing off our model, since we are trying to determine which variable has the greatest impact on delays and cancellations. After combining the Distance and Air Time variables the VIF for the Flights variable was no longer exceptionally high, so that variable could remain in our model. </p>
                 <p>We created the cancellation model with the Distance and Air time variables combined and encountered no issues of multicollinearity. </p>
+
+                <h2 id="conclusion">Conclusion</h2>
+                <p>TODO</p>
 
             </div>
     </body>
