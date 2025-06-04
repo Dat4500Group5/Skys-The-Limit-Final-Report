@@ -15,6 +15,8 @@
 <body style="margin: 0px;">
     <header style="text-align: center;">
         <h1>Investigating Plane Age and Flight Cancellations/Delays</h1>
+            <h2>Sky's The Limit Final Report</h2>
+            <p><strong>Authors:</strong> Daniel Allen, Minnie Cao, Aaron Donohoe, Kristen Lowe</p>
     </header>
 
     <nav>
@@ -26,6 +28,7 @@
         <a href="#abstract">Abstract</a>
         <a href="#intro">Introduction</a>
         <a href="#method">Methods</a>
+        <a class="sub" href="source">Sources</a>
         <a class="sub" href="#data">Data Wrangling</a>
         <a class="sub" href="#parquet">Parquet Files Use</a>
         <a class="sub" href="#proportion">Adding Proportions</a>
@@ -37,33 +40,55 @@
         <a class="sub" href="#fin">Final Models</a>
         <a class="sub" href="#hi">Hawaiian Aircraft Outliers</a>
         <a class="sub" href="#reg">Multivariable Regression</a>
-        <a class="sub" href="#multires">Multicollinearity</a>
         <a href="#discussion">Discussion</a>
         <a class="sub" href="#neg">Negative Estimates</a>
         <a class="sub" href="#new">Multicollinearity and New Model</a>
-        <a href="#conclusion">Conclusion</a>
+        <a class="sub" href="lim">Limitations</a>
+        <a class="sub" href="con">Conclusion</a>
     </nav>
 
     <div class="report">
         <h2 id="abstract">Abstract</h2>
-        <p>This study investigates the role of aircraft age and usage in contributing to flight disruptions, particularly carrier delays and carrier cancellations, among domestic U.S. flights.  While weather and air traffic are external causes, mechanical issues, often linked to aging, are internal and potentially predictable. We hypothesize that aging aircraft, through accumulated wear and maintenance demands, are more prone to causing disruptions, and this relationship can be quantified through historical flight data. </p>
-        <p>To evaluate this, we used “The Sky’s the Limit” dataset covering all U.S. domestic flights since 1995 and joined it with FAA aircraft registration data. We computed cumulative totals for each aircraft’s number of flights (FLIGHTS), distance traveled (DISTANCE), and total airtime (AIR_TIME) to create usage-based age proxies, along with manufacture-year-based AGE. These four variables were then analyzed through correlation and regression tests to predict three key outcomes: proportion of flights with any carrier delay, proportion of delays over 30 minutes, and proportion of flight cancellations. </p>
-        <p>The analysis revealed that delays over 30 minutes followed an S-shaped relationship with AGE: as planes aged, delays increased sharply, plateaued, and then rose again after about 15 years. In contrast, cancellations exhibited an inverted-U pattern: they increased with age but then declined beyond a certain point, although this was partially influenced by fewer aircraft in older age bins, which reduced reliability in the trend's tail. 
-        <p>These patterns suggest that maintenance is a major contributor to flight disruptions or lack thereof. Industry literature supports this, noting increased maintenance demands beginning at year 7, and mandatory FAA Aging Aircraft Inspections beginning at year 14. Planes operating reliably at very old ages tend to be corporate, multi-engine aircraft with superior maintenance regimes and set flight routes, reinforcing the role of targeted upkeep in mitigating disruptions. </p>
+        <p>This study investigates the role of aircraft age and usage in contributing to flight disruptions, particularly carrier delays and carrier cancellations, among domestic U.S. flights.  While weather and air traffic are external causes, mechanical issues, often linked to aging, are internal and potentially predictable. We hypothesize that aging aircraft, through accumulated wear and maintenance demands, are more prone to causing disruptions, and this relationship can be quantified through historical flight data. 
+        To evaluate this, we used “The Sky’s the Limit” dataset covering all U.S. domestic flights since 1995 and joined it with FAA aircraft registration data. We computed cumulative totals for each aircraft’s number of flights (FLIGHTS), distance traveled (DISTANCE), and total airtime (AIR_TIME) to create usage-based age proxies, along with manufacture-year-based AGE. These four variables were then analyzed through correlation and regression tests to predict three key outcomes: proportion of flights with any carrier delay, proportion of delays over 30 minutes, and proportion of flight cancellations. 
+        The analysis revealed that delays over 30 minutes followed an S-shaped relationship with AGE: as planes aged, delays increased sharply, plateaued, and then rose again after about 15 years. In contrast, cancellations exhibited an inverted-U pattern: they increased with age but then declined beyond a certain point, although this was partially influenced by fewer aircraft in older age bins, which reduced reliability in the trend's tail. 
+        These patterns suggest that maintenance is a major contributor to flight disruptions or lack thereof. Industry literature supports this, noting increased maintenance demands beginning at year 7, and mandatory FAA Aging Aircraft Inspections beginning at year 14. Planes operating reliably at very old ages tend to be corporate, multi-engine aircraft with superior maintenance regimes and set flight routes, reinforcing the role of targeted upkeep in mitigating disruptions. 
         </p>
 
         <h2 id="intro">Introduction</h2>
-        <p>Per the FAA, 2.9 million passengers are served on 45,000 flights across United States Domestic flights. 20-25% of these flights are predicted to be delayed, with a 1-2% cancellation rate. Several factors may account for delays, most notably weather, air traffic congestion and mechanical issues with the plane. While weather and air traffic congestion are not influenced by the status of a plane, mechanical problems may be explained through plane age, as wear from normal usage of the plane may incur increased amounts of maintenance. Thus, the purpose of this research project is to investigate the relationship between plane age and plane mishaps. Additionally, a multivariate model will assess plane age calculation.</p>
+        <p>Per the FAA, 2.9 million passengers are served on 45,000 flights across United States Domestic flights. 20-25% of these flights are predicted to be delayed, with a 1-2% cancellation rate. Several factors may account for delays, most notably weather, air traffic congestion and mechanical issues with the plane. While weather and air traffic congestion are not influenced by the status of a plane, mechanical problems may be explained through plane age, as wear from normal usage of the plane may incur increased amounts of maintenance. Thus, the purpose of this research project is to investigate the relationship between plane age and plane mishaps. Additionally, a multivariate model will assess plane age calculation. </p>
+        <p>With all of this in mind, we will endeavor to answer the question: Which of our predictor variables is the most accurate for predicting whether an aircraft will be delayed by at least thirty minutes?</p>
+            
             <h3> The Data </h3>
             <p>The data was acquired by ***</p>
 
         <h2 id="method">Methods</h2>
-            <h3>Sources</h3>
-            <p>TODO</p>
 
-            <h3>Original Data Collection</h3>
-            <p>TODO</p>
-
+            <h3 id="Source"></h3>Sources/h3>
+            <p> We used two sources for our data: 
+                <a href="https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr" target="_blank">
+                    Bureau of Transportation Statistics (BTS) Flight Data</a>, and the 
+                <a href="https://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download" target="_blank">
+                    Federal Aviation Administration (FAA) Aircraft registry.</a>
+            </p>
+            <p>The BTS Flight Data was gathered by Airline Service Quality Performance (ASQP) program. This program gathers information that is reported by airlines and used to monitor and analyze airline performance across the country. Some of the data contained in this program includes: </p>
+            <ul>
+                <li>Flight numbers</li>
+                <li>Tail numbers</li>
+                <li>Scheduled and actual departure and arrival times</li>
+                <li>Delays and their (rough) causes</li>
+                <li>Cancellations</li>
+                <li>Flight distances</li>
+                <li>Airtime</li>
+            </ul> 
+            <p>The FAA registry is also made up of self-reported data. Civil aircraft in the United States must be registered with the FAA. Information contained in this database is focused on the individual aircrafts, for example: </p>
+            <ul>
+                <li>Tail numbers</li>
+                <li>Manufacture year</li>
+                <li>Aircraft model</li>
+                <li>Aircraft owner</li>
+            </ul>
+              
             <h3 id="parquet">Parquet Files Use</h3>
             <p>We used Parquet files to efficiently download entire years of flight data at once directly off of the Skys the Limit website, rather than retrieving each month individually. By using the select function, we were able to extract only the variables relevant to our analysis, improving both speed and memory usage. </p>
 
@@ -98,24 +123,25 @@
             <h3 id="reg">Multivariable Regression</h3>
             <p>Multivariable regression was conducted with the four age variables together (looking at flights both annually and cumulatively). The four age variables were confirmed to be statistically significant because they all have very small p-values. However, we needed to assess the relative strength of their impact as predictor variables.</p>
 
-            <h3 id="multicol">Multicollinearity</h3>
-            <p>TODO</p>
-
             <h3 id="logreg">Logistic Regression</h3>
             <p>Initial logistic regression models were surprising for both delay and cancellations. Airtime and distance had large coefficients which is likely caused by their large multicollinearity. Thus, we created new models excluding airtime or distance. Standardized coefficients for the delay predicting model without airtime are as follows: Intercept = -3.067, Age = -0.028, Flights = 0.217, Distance = -0.028. Coefficients for the delay predicting model that excludes distance is as follows: Intercept = -3.067, Airtime = -0.034, Age = -0.027, Flights = 0.224. The same approach was used in the canceled model. Coefficients for the canceled model excluding airtime are as follows: Intercept = -5.447, Age = 0.337, Flights = 0.085, Distance = 0.06. Coefficients for the canceled model without distance are as follows: Intercept = -5.446, Airtime = 0.063, Flights = 0.081. </p>
 
             <h3 id="mod">Final Models</h3>
                 <h4>AGE</h4>
-                <p>A model was fit using AGE (years since manufacture) as a predictor variable...</p>
-
+                <p>A model was fit for using AGE (years since manufacture) as a predictor variable for the proportion of planes that were delayed by more than 30 minutes.</p>
+                <p>The instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays.</p>
+                
                 <h4>FLIGHTS</h4>
-                <p>A model was fit using FLIGHTS as a predictor variable...</p>
+                <p>A model was fit using FLIGHTS as a predictor variable for the proportion of planes delayed by more than 30 minutes. The instances of aircraft were binned by 1000 planes and then a cubic model was fit on the data.</p>
+                <p>There were a number of outliers, representing aircraft flying between islands in Hawaii, that skewed the regression line. Removing those outliers from the regression line fit more accurately. </p>        
+                
+                <h4>DISTANCE</h4>
+                <p>TODO</p>
 
+                <h4>AIRTIME</h4>
+                <p>TODO</p>
             
-            <h3 id="lim">Limitations</h3>
-            <p>TODO</p>
-        
-
+    
         <h2 id="result">Discussion</h2>
 
             <h3 id="neg">Negative Estimates in the Multiple Regression</h3>
@@ -128,9 +154,14 @@
             <p>In the face of multicollinear variables in our delays model, it was important to reduce conflicts in our variables could be throwing off our model, since we are trying to determine which variable has the greatest impact on delays and cancellations. After combining the Distance and Air Time variables the VIF for the Flights variable was no longer exceptionally high, so that variable could remain in our model. </p>
             <p>We created the cancellation model with the Distance and Air time variables combined and encountered no issues of multicollinearity. </p>
         
-        <h2 id="conclusion">Conclusion</h2>
-        <p>TODO</p>
-        
+            <h3 id="lim">Limitations</h3>
+            <p>In this project, we were able to identify clear patterns in the data and fit models to them. However, we are limited in the conclusions that we can reasonably draw from these models. We have selected and utilized predictor variables that work for our data, but the data was not collected by a randomized experiment. We are limited in our ability to control for confounding variables in our models and conclusions. </p>
+            <p>We were also constrained in the level of accuracy we could reach in our investigation into the causes of aircraft delays. If the data were available, we would have employed additional variables containing information about the mechanical status and history of individual aircraft. </p>
+
+            <h3 id="con">Conclusion</h3>
+            <p>Some of our predictor variables, such as DISTANCE and AIRTIME, were highly correlated with each other, but they each seemed to have some power in predicting aircraft delays. We were able to fit a very clean model with the AGE variable for both delays and cancellations, which was difficult to do with other predictors. We also found some research which helps to explain our findings. </p>
+            
+            <p></p>
             
     </div>
 </body>
