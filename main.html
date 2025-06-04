@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky's The Limit Final Report</title>
+    <meta name="author" content="Daniel Allen, Minnie Cao, Aaron Donohoe, Kristen Lowe" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <script src="script.js"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+</head>
+
+<body style="margin: 0px;">
+    <header style="text-align: center;">
+        <h1>Investigating Plane Age and Flight Cancellations/Delays</h1>
+    </header>
+
+    <nav>
+        <a href="" style="background-color: aliceblue;">Report</a>
+        <a href="">Shiny App</a>
+    </nav>
+
+    <nav class="content">
+        <a href="#abstract">Abstract</a>
+        <a href="#intro">Introduction</a>
+        <a href="#method">Methods</a>
+        <a class="sub" href="#data">Data Wrangling</a>
+        <a class="sub" href="#parquet">Parquet Files Use</a>
+        <a class="sub" href="#proportion">Adding Proportions</a>
+        <a class="sub" href="#age">Four Ages</a>
+        <a class="sub" href="#multi">Multicollinearity</a>
+        <a href="#result">Results</a>
+        <a class="sub" href="#ana">Key Analyses</a>
+        <a class="sub" href="#mod">Final Models</a>
+        <a class="sub" href="#hi">Hawaiian Aircraft Outliers</a>
+        <a class="sub" href="#reg">Multivariable Regression</a>
+        <a class="sub" href="#multires">Multicollinearity</a>
+        <a href="#discussion">Discussion</a>
+        <a class="sub" href="#neg">Negative Estimates</a>
+        <a class="sub" href="#new">Multicollinearity and New Model</a>
+        <a href="#conclusion">Conclusion</a>
+    </nav>
+
+    <div class="report">
+        <h2 id="abstract">Abstract</h2>
+        <p>TODO</p>
+
+        <h2 id="intro">Introduction</h2>
+        <p>Per the FAA, 2.9 million passengers are served on 45,000 flights across United States Domestic flights. 20–25% of these flights are predicted to be delayed, with a 1–2% cancellation rate. Several factors may account for delays, most notably weather, air traffic congestion and mechanical issues with the plane...</p>
+        <h3>The Data</h3>
+        <p>The data was acquired by ***</p>
+
+        <h2 id="method">Methods</h2>
+        <h3>Sources</h3>
+        <p>TODO</p>
+
+        <h3>Metrics</h3>
+        <p>TODO</p>
+
+        <h3>Original Data Collection</h3>
+        <p>TODO</p>
+
+        <h3 id="parquet">Parquet Files Use</h3>
+        <p>Parquet files were used to download data from the massive archive without needing to download everything...</p>
+
+        <h3 id="data">Data Wrangling</h3>
+        <p>Cleaning data was minimal, as The Sky’s the Limit data contained no missing values...</p>
+
+        <h3 id="proportion">Adding Proportions</h3>
+        <p>Proportions were calculated for planes out of total flights that were delayed more than thirty minutes...</p>
+        <p><img src="V2Visualization_ProportionDelay.png" alt="Screenshot" /></p>
+
+        <h3 id="age">Four Ages</h3>
+        <p>Correlation tests were done with the 4 ways to look at age...</p>
+
+        <h3 id="multi">Multicollinearity</h3>
+        <p>A correlation test was done between annual flights and age in years since manufacture...</p>
+
+        <h2 id="result">Results</h2>
+
+        <h3 id="ana">Key Analyses</h3>
+        <p>Correlation tests were done with the 4 ways to look at age...</p>
+
+        <h3 id="mod">Final Models</h3>
+        <h4>AGE</h4>
+        <p>A model was fit using AGE (years since manufacture) as a predictor variable...</p>
+
+        <h4>FLIGHTS</h4>
+        <p>A model was fit using FLIGHTS as a predictor variable...</p>
+
+        <h3 id="hi">Hawaiian Aircraft Outliers</h3>
+        <p>Details about outliers go here.</p>
+
+        <h3>Limitations</h3>
+        <p>TODO</p>
+
+        <h3 id="reg">Multivariable Regression</h3>
+        <p>Multivariable regression was conducted with the four age variables together...</p>
+    </div>
+</body>
+</html>
