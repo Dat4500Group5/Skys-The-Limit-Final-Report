@@ -58,9 +58,9 @@ a{
 }
 
 #content{
-    margin-top: 2rem;
+    margin-top: 1rem;
     position: sticky;
-    top: 5rem;
+    top: 4rem;
     left: 4rem;
     float: left;
     width: auto;
@@ -109,7 +109,7 @@ a{
     margin-top: 2rem;
 }
 
-h2[id], h3[id]{
+*[id]{
     scroll-margin-top: 4rem;
 }
 
@@ -118,10 +118,39 @@ h2[id], h3[id]{
     color: darkslateblue;
 }
 
+#cit{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+#cit h2{
+    text-align: center;
+}
+
+#cit p{
+    margin-bottom: 0;
+}
+
+#cit a{
+    margin-left: 3rem;
+    display: block;
+    text-align: justify;
+    white-space: normal;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
 img {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 50svw;
     height: auto;
+}
+
+.fig{
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .model img{

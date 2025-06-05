@@ -43,6 +43,7 @@
             <a class="sub" href="#new">Multicollinearity and New Model</a>
             <a class="sub" href="#lim">Limitations</a>
             <a href="#con">Conclusion</a>
+            <a href="#cit">Citation</a>
         </nav>
         <div class="report">
             <h2 id="abstract">Abstract</h2>
@@ -125,28 +126,30 @@
             <p style="margin-left: 2rem;">Intercept = -5.446<br>Airtime = 0.063<br>Flights = 0.081</p>
 
             <h3 id="fin">Final Models</h3>
-            <h3 id="fin">Final Models</h3>
+            
+            <h4>AGE</h4>
+            <p>We fit a logistic regression model using aircraft <strong>AGE</strong> (in years since manufacture) to predict the proportion of flights delayed by more than 30 minutes. Aircraft were grouped by age and plotted by their average delay proportion, and a cubic regression model was applied. This model revealed a clear nonlinear relationship between age and the likelihood of delays.</p>
+            <img src="images/Delay vs AGE.png" alt="Plot showing proportion of planes delayed vs AGE" width="600">
+            <div class="fig">Fig 1. Proportion of planes delayed vs. AGE plot</div>
+            <p>A second model was successfully fit to predict the proportion of flight cancellations using <strong>AGE</strong> as the predictor. Here, the instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays. This was the only predictor variable for which we were able to fit a valid cancellation model.</p>
+            <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes canceled vs AGE" width="600">
+            <div class="fig">Fig 2. Proportion of planes canceled vs. AGE plot</div>
 
-                <h4>AGE</h4>
-                <p>We fit a logistic regression model using aircraft <strong>AGE</strong> (in years since manufacture) to predict the proportion of flights delayed by more than 30 minutes. Aircraft were grouped by age and plotted by their average delay proportion, and a cubic regression model was applied. This model revealed a clear nonlinear relationship between age and the likelihood of delays.</p>
-                <img src="images/Delay vs AGE.png" alt="Plot showing proportion of planes delayed vs AGE" width="600">
-                <p>A second model was successfully fit to predict the proportion of flight cancellations using AGE as the predictor. This was the only predictor variable for which we were able to fit a valid cancellation model.</p>
-                <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes cancelled vs AGE" width="600">
+            <h4>FLIGHTS</h4>
+            <p> A cubic logistic regression model was fit using <strong>FLIGHTS</strong> (the number of recorded flights per aircraft) to predict the proportion of delays over 30 minutes. The data were binned in increments of 1,000 flights, and the model was weighted by flight count.</p>
+            <p>The regression was initially skewed due to a cluster of outliers—primarily short-haul aircraft operating between Hawaiian islands. These outliers were removed to improve the model’s accuracy and better reflect the broader trend. </p>
+            <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
+            <div class="fig">Fig 3. Proportion of planes delayed vs. Flights plot</div>
 
-                <h4>FLIGHTS</h4>
-                <p> A cubic logistic regression model was fit using <strong>FLIGHTS</strong> (the number of recorded flights per aircraft) to predict the proportion of delays over 30 minutes. The data were binned in increments of 1,000 flights, and the model was weighted by flight count.</p>
-                <p>The regression was initially skewed due to a cluster of outliers—primarily short-haul aircraft operating between Hawaiian islands. These outliers were removed to improve the model’s accuracy and better reflect the broader trend. </p>
-                <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
+            <h4>DISTANCE</h4>
+            <p>We fit a cubic logistic regression model using cumulative <strong>DISTANCE</strong> to predict the proportion of flights delayed over 30 minutes. Distance values were binned by quantile, and flight count weighting was applied.</p>
+            <img id="f4" src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs distance" width="600">
+            <div class="fig">Fig 4. Proportion of planes delayed vs. Distance plot</div>
 
-                <h4>DISTANCE</h4>
-                <p>We fit a cubic logistic regression model using cumulative <strong>DISTANCE</strong> to predict the proportion of flights delayed over 30 minutes. Distance values were binned by quantile, and flight count weighting was applied.</p>
-                <img src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs distance" width="600">
-
-                <h4>AIR TIME</h4>
-                <p>A fourth-degree logistic regression model was applied to <strong>AIRTIME</strong>  to predict the probability of delays over 30 minutes. As part of this pricess, airtime was converted to days and binned by quantile. Finally, flight count weighting was employed.</p>
-                <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
-
-                <p></p>
+            <h4>AIR TIME</h4>
+            <p>A fourth-degree logistic regression model was applied to <strong>AIRTIME</strong>  to predict the probability of delays over 30 minutes. As part of this pricess, airtime was converted to days and binned by quantile. Finally, flight count weighting was employed.</p>
+            <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
+            <div class="fig">Fig 5. Proportion of planes delayed vs. Airtime plot</div>
 
             <h2 id="discussion">Discussion</h2>
 
@@ -165,12 +168,19 @@
             <p>We were also constrained in the level of accuracy we could reach in our investigation into the causes of aircraft delays. If the data were available, we would have employed additional variables containing information about individual aircraft's mechanical status and history.</p>
 
             <h2 id="con">Conclusion</h2>
-            <p>Each of our independent variables seemed to have some power in predicting aircraft delays. The variables for AIRTIME and DISTANCE had similar effects, as they were highly correlated with each other. We used the BIC() and AIC() functions to compare each of the models we created and found that the model with the lowest BIC value was the one that used DISTANCE as a predictor variable for the proportion of planes that were delayed more than thirty minutes. By this metric, distance flown is the best predictor of aircraft delays. However, we also encountered a real-world argument for aircraft age being the best predictor.</p>
+            <p>Each of our independent variables seemed to have some power in predicting aircraft delays. The variables for AIRTIME and DISTANCE had similar effects, as they were highly correlated with each other. We used the BIC() and AIC() functions to compare each of the models we created and found that the model with the lowest BIC value was the one that used DISTANCE as a predictor variable for the proportion of planes that were delayed more than thirty minutes (see <a href="#f4"><em>Fig 4</em></a>). By this metric, distance flown is the best predictor of aircraft delays. However, we also encountered a real-world argument for aircraft age being the best predictor.</p>
             <p>We were able to fit a clean model with the AGE variable for both delays and cancellations, which was challenging to do with other predictors. We also found some research that helped explain our findings.</p>
             <p>There is a visible general trend between "AGE" and the proportion of delays over 30 minutes: it increases, plateaus, and then increases again. We attribute this pattern to maintenance demands increasing with aircraft age. 
                 According to a study on <a href="https://www.researchgate.net/publication/235069857_The_Maintenance_Costs_of_Aging_Aircraft_Insights_from_Commercial_Aviation" target="_blank">
                 The Maintenance Costs of Aging Aircraft</a>, Boeing separates an aircraft's age into three stages: the “New” period (0–7 years), the “Mature” period (7–14 years), and the “Aging” period (14+ years). Each stage brings increasing maintenance costs, with the final stage offering diminishing returns to performance.
-            </p>                    
-            <footer></footer>
+            </p>
+
+            <div id="cit">
+                <h2>Citation</h2>
+                <p>The maintenance costs of aging aircraft: Insights from commercial aviation. (n.d.-b).</p>
+                <a href="https://www.researchgate.net/publication/235069857_The_Maintenance_Costs_of_Aging_Aircraft_Insights_from_Commercial_Aviatione" target="_blank">https://www.researchgate.net/publication/235069857_The_Maintenance_Costs_of_Aging_Aircraft_Insights_from_Commercial_Aviation</a>
+            </div>
+        </div>                 
+        <footer></footer>
     </body>
 </html>
