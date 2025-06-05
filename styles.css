@@ -35,7 +35,7 @@ nav{
 }
 
 #header a{
-    padding: 10px 15px;
+    padding: 5rem 15px;
     color: black;
 }
 
@@ -88,7 +88,7 @@ a{
 
 .report{
     position: static;
-    margin-left: 30svw;
+    margin-left: 28rem;
     margin-right: 50px;
     margin-top: 2rem;
 }
@@ -118,5 +118,5 @@ img {
 }
 
 footer{
-    height: 5rem;
+    height: 12rem;
 }
