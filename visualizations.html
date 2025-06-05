@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizations</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header style="text-align: center;">
-        <h1>Visualizations</h1>
-        <p>Model Outputs and Graphs</p>
-        <nav>
-            <a href="index.html">Back to Report</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sky's The Limit Final Report</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    </head>
+
+    <body style="margin: 0px;">
+        <header style="text-align: center;">
+            <h1>Investigating Plane Age and Flight Cancellations/Delays</h1>
+                <h2>Sky's The Limit Final Report</h2>
+                <p><strong>Authors:</strong> Daniel Allen, Minnie Cao, Aaron Donohoe, Kristen Lowe</p>
+        </header>
+        <nav id="header">
+            <a href="index.html">Report</a>
+            <a href="" style="background-color: aliceblue;">Visualizations</a>
         </nav>
-    </header>
+        <div id="gap"></div>
+        <nav id="content" style="justify-content:center; width: 10rem;">
+            <a href="#delay" style="text-align: center;">Delay Model</a>
+            <a href="#canceled" style="text-align: center;">Cancel Model</a>
+        </nav>
 
-    <main style="text-align: center;">
-        <h2>Delay Models</h2>
-        <img src="images/Delay vs AGE.png" alt="Delay vs AGE" width="600">
-        <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Delay vs Flights" width="600">
-        <img src="images/Delay_vs_Distance.png" alt="Delay vs Distance" width="600">
-        <img src="images/Delayed_vs_Airtime_Plot.png" alt="Delay vs Airtime" width="600">
+        <div class="report model" style="text-align: center; margin-left: 25rem;">
+            <h2 id="delay" style="text-align: start;">Delay Models</h2>
+            <div style="margin-top: 3rem;">
+                <img src="images/Delay vs AGE.png" alt="Delay vs AGE">
+                <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Delay vs Flights">
+                <img src="images/Delay_vs_Distance.png" alt="Delay vs Distance">
+                <img src="images/Delayed_vs_Airtime_Plot.png" alt="Delay vs Airtime">
+            </div>
 
-        <h2>Cancellation Models</h2>
-        <img src="images/Cancellations_vs_Age.png" alt="Cancellations vs AGE" width="600">
-    </main>
-</body>
+            <h2 id="canceled" style="text-align: start;">Cancellation Models</h2>
+            <div style="margin-top: 3rem;">
+                <img src="images/Cancellations_vs_Age.png" alt="Cancellations vs AGE">
+            </div>
+        </div>
+        
+        <footer></footer>
+    </body>
 </html>
