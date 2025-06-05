@@ -163,8 +163,11 @@
                 <p>We were also constrained in the level of accuracy we could reach in our investigation into the causes of aircraft delays. If the data were available, we would have employed additional variables containing information about the mechanical status and history of individual aircraft. </p>
 
                 <h3 id="con">Conclusion</h3>
-                <p>Some of our predictor variables, such as DISTANCE and AIRTIME, were highly correlated with each other, but they each seemed to have some power in predicting aircraft delays. We were able to fit a very clean model with the AGE variable for both delays and cancellations, which was difficult to do with other predictors. We also found some research which helps to explain our findings. </p>
-        </div>
-        <footer></footer>
+                <p>Each of our independent variables seemed to have some power in predicting aircraft delays. The variables for AIRTIME and DISTANCE had similar effects, as they were highly correlated with each other. We used the BIC() and AIC() functions to compare each of the models we created, and found that the model with the lowest BIC value was the one that used DISTANCE as a predictor variable for the proportion of planes that were delayed more than thirty minutes. By this metric, distance flown is the best predictor of aircraft delays. However, we also encountered a real-world argument for aircraft age being the best predictor. </p>>        </div>
+                <p>We were able to fit a very clean model with the AGE variable for both delays and cancellations, which was difficult to do with other predictors. We also found some research which helps to explain our findings. </p>
+                <p>There is a visible general trend between "AGE" and the proportion of delays over 30 minutes: it increases, plateaus, and then increases again. We attribute this pattern to maintenance demands increasing with aircraft age. 
+                    According to a study on <a href="https://www.researchgate.net/publication/235069857_The_Maintenance_Costs_of_Aging_Aircraft_Insights_from_Commercial_Aviation" target="_blank">
+                    The Maintenance Costs of Aging Aircraft</a>, Boeing separates an aircraft's age into three stages: the “New” period (0–7 years), the “Mature” period (7–14 years), and the “Aging” period (14+ years). Each stage brings increasing maintenance costs, with the final stage offering diminishing returns to performance.</p>                    
+                <footer></footer>
     </body>
 </html>
