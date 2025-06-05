@@ -125,27 +125,28 @@
             <p style="margin-left: 2rem;">Intercept = -5.446<br>Airtime = 0.063<br>Flights = 0.081</p>
 
             <h3 id="fin">Final Models</h3>
-            <h4>AGE</h4>
-            <p>A model was fit for using AGE (years since manufacture) as a predictor variable for the proportion of planes that were delayed by more than 30 minutes.</p>
-            <p>The instances of aircraft were grouped by age, then plotted by mean delay time and a cubic model was fitted. There was a clear relationship between AGE and aircraft delays.</p>
-            <img src="images/Delay vs AGE.png" alt="Plot showing proportion of planes delayed vs AGE" width="600">
-            <p>We also succeeded in fitting a model to the pattern of aircraft cancellations using AGE as a predictor variable, something we were unable to do with the other predictors.</p>
-            <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes cancelled vs AGE" width="600">
+            <h3 id="fin">Final Models</h3>
 
-            <h4>FLIGHTS</h4>
-            <p>A model was fit using FLIGHTS as a predictor variable for the proportion of planes delayed by more than 30 minutes. The instances of aircraft were binned by 1000 planes and then a cubic model was fit on the data.</p>
-            <!--<img src="images/plane_age.png" alt="Chart showing age vs delay" width="600"-->
-            <p>There were a number of outliers, representing aircraft flying between islands in Hawaii, that skewed the regression line. Removing those outliers from the regression line fit more accurately. </p>        
-            <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
+                <h4>AGE</h4>
+                <p>We fit a logistic regression model using aircraft <strong>AGE</strong> (in years since manufacture) to predict the proportion of flights delayed by more than 30 minutes. Aircraft were grouped by age and plotted by their average delay proportion, and a cubic regression model was applied. This model revealed a clear nonlinear relationship between age and the likelihood of delays.</p>
+                <img src="images/Delay vs AGE.png" alt="Plot showing proportion of planes delayed vs AGE" width="600">
+                <p>A second model was successfully fit to predict the proportion of flight cancellations using AGE as the predictor. This was the only predictor variable for which we were able to fit a valid cancellation model.</p>
+                <img src="images/Cancellations_vs_Age.png" alt="Plot showing proportion of planes cancelled vs AGE" width="600">
 
-            <h4>DISTANCE</h4>
-            <p>TODO</p>
-            <img src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs delays" width="600">
+                <h4>FLIGHTS</h4>
+                <p> A cubic logistic regression model was fit using <strong>FLIGHTS</strong> (the number of recorded flights per aircraft) to predict the proportion of delays over 30 minutes. The data were binned in increments of 1,000 flights, and the model was weighted by flight count.</p>
+                <p>The regression was initially skewed due to a cluster of outliers—primarily short-haul aircraft operating between Hawaiian islands. These outliers were removed to improve the model’s accuracy and better reflect the broader trend. </p>
+                <img src="images/Prop_Delayed_vs_Flights_Cubic_Model_Plot.png" alt="Plot showing proportion of planes delayed vs flights" width="600">
 
-            <h4>AIRTIME</h4>
-            <p>TODO</p>
-            <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
-            <p></p>
+                <h4>DISTANCE</h4>
+                <p>We fit a cubic logistic regression model using cumulative <strong>DISTANCE</strong> to predict the proportion of flights delayed over 30 minutes. Distance values were binned by quantile, and flight count weighting was applied.</p>
+                <img src="images/Delay_vs_Distance.png" alt="Plot showing proportion of planes delayed vs distance" width="600">
+
+                <h4>AIR TIME</h4>
+                <p>A fourth-degree logistic regression model was applied to <strong>AIRTIME</strong>  to predict the probability of delays over 30 minutes. As part of this pricess, airtime was converted to days and binned by quantile. Finally, flight count weighting was employed.</p>
+                <img src="images/Delayed_vs_Airtime_Plot.png" alt="Plot showing proportion of planes delayed vs airtime" width="600">
+
+                <p></p>
 
             <h2 id="discussion">Discussion</h2>
 
