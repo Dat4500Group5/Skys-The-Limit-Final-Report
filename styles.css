@@ -107,6 +107,7 @@ h2[id], h3[id]{
 }
 
 img {
+    display: block;
     width: 50svw;
     height: auto;
 }
