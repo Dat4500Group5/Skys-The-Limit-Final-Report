@@ -1,2 +1,2 @@
 # Skys The Limit Final Report
-HTML page including DAT4500 final report and resources
+Link to Report: <a href="https://dat4500group5.github.io/Skys-The-Limit-Final-Report/" target="_blank">https://dat4500group5.github.io/Skys-The-Limit-Final-Report/</a>
